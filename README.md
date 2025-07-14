@@ -1,3 +1,4 @@
 # LuaBCManipulator
 
-Мой пост на BH: https://www.blast.hk/threads/224821/
+Мой пост на BH с подробным описанием функционала: 
+	https://www.blast.hk/threads/224821/
