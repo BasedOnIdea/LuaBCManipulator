@@ -1,0 +1,67 @@
+struct nk_color protosLabelColor = { 59, 238, 190, 255 };
+struct nk_color background = nk_rgb(36, 36, 36);
+struct nk_color foreground = nk_rgb(220, 220, 220);
+struct nk_color accent = nk_rgb(50, 50, 50);
+struct nk_color highlight = nk_rgb(86, 93, 89);
+
+// Window style
+ctx->style.window.background = background;
+ctx->style.window.fixed_background = nk_style_item_color(background);
+ctx->style.window.border_color = nk_rgb(110, 110, 120); // soft gray border
+ctx->style.window.border = 1;
+ctx->style.window.padding = nk_vec2(8, 8);
+ctx->style.window.spacing = nk_vec2(5, 5);
+ctx->style.window.rounding = 0.0f;
+
+ctx->style.text.padding = nk_vec2(0, 0);
+// Title bar
+ctx->style.window.header.active = nk_style_item_color(background);
+ctx->style.window.header.normal = nk_style_item_color(background);
+ctx->style.window.header.hover = nk_style_item_color(background);
+ctx->style.window.header.label_normal = foreground;
+ctx->style.window.header.label_hover = foreground;
+ctx->style.window.header.label_active = foreground;
+
+// Border shadows
+ctx->style.window.border_color = nk_rgb(110, 110, 120);
+ctx->style.window.border = 1;
+
+// Text color
+ctx->style.text.color = foreground;
+
+// Button style
+ctx->style.button.normal = nk_style_item_color(nk_rgb(51, 51, 51));
+ctx->style.button.hover = nk_style_item_color(nk_rgb(60, 60, 60));
+ctx->style.button.active = nk_style_item_color(nk_rgb(70, 70, 70));
+ctx->style.button.border_color = nk_rgb(50, 50, 50);
+ctx->style.button.rounding = 0.0f;
+ctx->style.button.text_background = foreground;
+ctx->style.button.text_normal = foreground;
+ctx->style.button.text_hover = nk_rgb(240, 240, 240);
+ctx->style.button.text_active = nk_rgb(255, 255, 255);
+
+// Scrollbars
+ctx->style.scrollh.normal = nk_style_item_color(accent);
+ctx->style.scrollh.hover = nk_style_item_color(nk_rgb(60, 60, 60));
+ctx->style.scrollh.active = nk_style_item_color(nk_rgb(80, 80, 80));
+ctx->style.scrollv.normal = nk_style_item_color(accent);
+ctx->style.scrollv.hover = nk_style_item_color(nk_rgb(60, 60, 60));
+ctx->style.scrollv.active = nk_style_item_color(nk_rgb(80, 80, 80));
+ctx->style.scrollv.border_color = nk_rgb(50, 50, 50);
+
+// Sliders and checkmarks
+ctx->style.slider.normal = nk_style_item_color(accent);
+ctx->style.slider.hover = nk_style_item_color(nk_rgb(60, 60, 60));
+ctx->style.slider.active = nk_style_item_color(nk_rgb(70, 70, 70));
+ctx->style.slider.border_color = nk_rgb(110, 110, 120);
+ctx->style.slider.cursor_normal = nk_style_item_color(nk_rgb(150, 150, 150));
+ctx->style.slider.cursor_hover = nk_style_item_color(nk_rgb(180, 180, 180));
+ctx->style.slider.cursor_active = nk_style_item_color(nk_rgb(200, 200, 200));
+
+// Checkbox
+ctx->style.checkbox.normal = nk_style_item_color(nk_rgb(50, 50, 50));
+ctx->style.checkbox.hover = nk_style_item_color(highlight);
+ctx->style.checkbox.active = nk_style_item_color(highlight);
+
+ctx->style.button.rounding = 0.0f;
+ctx->style.tab.rounding = 0.0f;

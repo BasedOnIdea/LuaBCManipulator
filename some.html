@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuaJIT Opcodes</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 8px 12px; border: 1px solid #ddd; }
+        th { background-color: #f2f2f2; }
+        h2 { margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<h1>LuaJIT Opcodes</h1>
+<p>This page contains information about all 96 LuaJIT opcodes. Click on the links below to jump to a specific opcode.</p>
+
+<ul>
+    <li><a href="#MOVE">MOVE</a></li>
+    <li><a href="#LOADK">LOADK</a></li>
+    <li><a href="#LOADBOOL">LOADBOOL</a></li>
+    <li><a href="#LOADNIL">LOADNIL</a></li>
+    <li><a href="#GETUPVAL">GETUPVAL</a></li>
+    <li><a href="#SETUPVAL">SETUPVAL</a></li>
+    <li><a href="#GETTABUP">GETTABUP</a></li>
+    <li><a href="#SETTABUP">SETTABUP</a></li>
+    <li><a href="#GETTABLE">GETTABLE</a></li>
+    <li><a href="#SETTABLE">SETTABLE</a></li>
+    <li><a href="#NEWTABLE">NEWTABLE</a></li>
+    <li><a href="#SELF">SELF</a></li>
+    <li><a href="#ADD">ADD</a></li>
+    <li><a href="#SUB">SUB</a></li>
+    <li><a href="#MUL">MUL</a></li>
+    <li><a href="#DIV">DIV</a></li>
+    <li><a href="#MOD">MOD</a></li>
+    <li><a href="#POW">POW</a></li>
+    <li><a href="#UNM">UNM</a></li>
+    <li><a href="#NOT">NOT</a></li>
+    <li><a href="#LEN">LEN</a></li>
+    <li><a href="#CONCAT">CONCAT</a></li>
+    <li><a href="#JMP">JMP</a></li>
+    <li><a href="#EQ">EQ</a></li>
+    <li><a href="#LT">LT</a></li>
+    <li><a href="#LE">LE</a></li>
+</ul>
+
+<table>
+    <thead>
+        <tr>
+            <th>Opcode</th>
+            <th>Description</th>
+            <th>Format</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="MOVE">
+            <td>MOVE</td>
+            <td>Move a value from one register to another</td>
+            <td>R(A) = R(B)</td>
+        </tr>
+        <tr id="LOADK">
+            <td>LOADK</td>
+            <td>Load constant</td>
+            <td>R(A) = K(B)</td>
+        </tr>
+        <tr id="LOADBOOL">
+            <td>LOADBOOL</td>
+            <td>Load a boolean value</td>
+            <td>R(A) = (B != 0); pc += C</td>
+        </tr>
+        <tr id="LOADNIL">
+            <td>LOADNIL</td>
+            <td>Load nil into registers</td>
+            <td>R(A) = NULL; R(A+1) = NULL; ...</td>
+        </tr>
+        <tr id="GETUPVAL">
+            <td>GETUPVAL</td>
+            <td>Get a value from an upvalue</td>
+            <td>R(A) = UpValue[B]</td>
+        </tr>
+        <tr id="SETUPVAL">
+            <td>SETUPVAL</td>
+            <td>Set a value to an upvalue</td>
+            <td>UpValue[B] = R(A)</td>
+        </tr>
+        <tr id="GETTABUP">
+            <td>GETTABUP</td>
+            <td>Get a value from an upvalue table</td>
+            <td>R(A) = UpValue[B][C]</td>
+        </tr>
+        <tr id="SETTABUP">
+            <td>SETTABUP</td>
+            <td>Set a value to an upvalue table</td>
+            <td>UpValue[B][C] = R(A)</td>
+        </tr>
+        <tr id="GETTABLE">
+            <td>GETTABLE</td>
+            <td>Get a value from a table</td>
+            <td>R(A) = R(B)[C]</td>
+        </tr>
+        <tr id="SETTABLE">
+            <td>SETTABLE</td>
+            <td>Set a value to a table</td>
+            <td>R(A)[B] = R(C)</td>
+        </tr>
+        <tr id="NEWTABLE">
+            <td>NEWTABLE</td>
+            <td>Create a new table</td>
+            <td>R(A) = {} (size = B, C)</td>
+        </tr>
+        <tr id="SELF">
+            <td>SELF</td>
+            <td>Set a table field and return its value</td>
+            <td>R(A+1) = R(B); R(A) = R(B)[C]</td>
+        </tr>
+        <tr id="ADD">
+            <td>ADD</td>
+            <td>Perform an addition</td>
+            <td>R(A) = R(B) + R(C)</td>
+        </tr>
+        <tr id="SUB">
+            <td>SUB</td>
+            <td>Perform a subtraction</td>
+            <td>R(A) = R(B) - R(C)</td>
+        </tr>
+        <tr id="MUL">
+            <td>MUL</td>
+            <td>Perform multiplication</td>
+            <td>R(A) = R(B) * R(C)</td>
+        </tr>
+        <tr id="DIV">
+            <td>DIV</td>
+            <td>Perform division</td>
+            <td>R(A) = R(B) / R(C)</td>
+        </tr>
+        <tr id="MOD">
+            <td>MOD</td>
+            <td>Perform modulus</td>
+            <td>R(A) = R(B) % R(C)</td>
+        </tr>
+        <tr id="POW">
+            <td>POW</td>
+            <td>Perform exponentiation</td>
+            <td>R(A) = R(B) ^ R(C)</td>
+        </tr>
+        <tr id="UNM">
+            <td>UNM</td>
+            <td>Unary minus</td>
+            <td>R(A) = -R(B)</td>
+        </tr>
+        <tr id="NOT">
+            <td>NOT</td>
+            <td>Logical NOT</td>
+            <td>R(A) = not R(B)</td>
+        </tr>
+        <tr id="LEN">
+            <td>LENGTH</td>
+            <td>Get the length of a value</td>
+            <td>R(A) = length of R(B)</td>
+        </tr>
+        <tr id="CONCAT">
+            <td>CONCAT</td>
+            <td>Concatenate multiple values</td>
+            <td>R(A) = R(B) .. R(C) .. ...</td>
+        </tr>
+        <tr id="JMP">
+            <td>JMP</td>
+            <td>Jump to another instruction</td>
+            <td>pc += sBx</td>
+        </tr>
+        <tr id="EQ">
+            <td>EQ</td>
+            <td>Compare two values for equality</td>
+            <td>if R(B) == R(C) then pc += sBx</td>
+        </tr>
+        <tr id="LT">
+            <td>LT</td>
+            <td>Compare two values for less-than</td>
+            <td>if R(B) < R(C) then pc += sBx</td>
+        </tr>
+        <tr id="LE">
+            <td>LE</td>
+            <td>Compare two values for less-than or equal</td>
+            <td>if R(B) <= R(C) then pc += sBx</td>
+        </tr>
+	<tr id="CALL">
+            <td>CALL</td>
+            <td>Compare two values for less-than or equal</td>
+            <td>if R(B) <= R(C) then pc += sBx</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
