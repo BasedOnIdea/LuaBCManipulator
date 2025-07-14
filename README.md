@@ -1,2 +1,3 @@
 # LuaBCManipulator
-Simple LuaJIT 2.0 bytecode editor
+
+Мой пост на BH: https://www.blast.hk/threads/224821/
